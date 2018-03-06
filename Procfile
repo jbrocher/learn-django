@@ -1,1 +1,1 @@
-web: python mysite/manage.py runserver
+web: gunicorn --pythonpath mysite mysite.wsgi  
