@@ -1,1 +1,1 @@
-web: gunicorn mysite.wsgi --logile -
+web: python mysite/manage.py runserver
