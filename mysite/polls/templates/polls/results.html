@@ -1,0 +1,43 @@
+{% extends "polls/base.html" %}
+
+{% block body %}
+
+<div class="container">
+
+  {% if latest_question_list %}
+    <div class="row">
+
+      {% for question in latest_question_list %}
+
+      <div class="col-md">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">{{ question.question_text}}</h3>
+              <ul class="list-group">
+                {% for choice in question.choice_set.all %}
+                <li class="list-group-item">{{ choice.choice_text }} : {{choice.votes}}</li>
+                {% endfor %}
+              </ul>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+    </div>
+
+
+  {% else %}
+
+    <div class="row">
+      <div class="col">
+        No polls are available
+      </div>
+    </div>
+
+  {% endif %}
+
+</div>
+
+{% endblock %}

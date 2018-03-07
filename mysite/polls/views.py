@@ -20,8 +20,10 @@ def detail(request, question_id):
 
 
 def results(request, question_id):
-    response = "You're looking at the results of question %s."
-    return HttpResponse(response % question_id)
+    template = loader.get_template('polls/results.html')
+    question_list = Question.objects.order_by('-pub_date')
+    context = {'latest_question_list': question_list}
+    return HttpResponse(template.render(context, request))
 
 
 def vote(request, question_id):
