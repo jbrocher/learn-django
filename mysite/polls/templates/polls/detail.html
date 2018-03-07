@@ -1,0 +1,42 @@
+{% extends "polls/base.html" %}
+
+{% block body %}
+
+  <div class="container">
+    {% if error_message %}<p class="alert alert-danger" role="alert"><strong>{{ error_message }}</strong></p>{% endif %}
+
+    {% if question.choice_set.all %}
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title">{{ question.question_text}}</h1>
+
+      <form method="POST" action="{% url 'polls:vote' question.id %}">
+        {% csrf_token %}
+        <fieldset class="form-group">
+          <legend>Possible answers : </legend>
+        {% for choice in question.choice_set.all %}
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+            {{ choice.choice_text }}
+          </label>
+        </div>
+        {% endfor %}
+      </fieldset>
+      <button type="submit" class="btn btn-primary">Vote</button>
+
+      </form>
+    </div>
+
+
+    {% else %}
+    <div class="alert alert-warning" role="alert">
+      <strong>Pas de réponse disponibles</strong>
+    </div>
+    {% endif %}
+    </div>
+  </div>
+
+
+
+{% endblock %}

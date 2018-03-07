@@ -1,0 +1,39 @@
+{% extends "polls/base.html" %}
+
+{% block body %}
+
+<div class="container">
+
+  {% if latest_question_list %}
+    <div class="row">
+
+      {% for question in latest_question_list %}
+
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title"> Question {{ question.id }}</h5>
+            <p class="card-text">{{ question.question_text}}</p>
+            <a class="btn btn-primary" href="{% url 'polls:detail' question.id %}">Find out here ! </a>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+    </div>
+
+
+  {% else %}
+
+    <div class="row">
+      <div class="col">
+        No polls are available
+      </div>
+    </div>
+
+  {% endif %}
+
+</div>
+
+{% endblock %}
