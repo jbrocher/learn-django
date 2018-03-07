@@ -11,14 +11,12 @@ url = "https://pypi.python.org/simple"
 
 [packages]
 
-django = "*"
+Django = "*"
 gunicorn = "*"
 "pep8" = "*"
 "flake8" = "*"
 jedi = "*"
 django-heroku = "*"
-"django-bootstrap3" = "*"
-"django-bootstrap4" = "*"
 
 
 [requires]
