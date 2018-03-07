@@ -9,12 +9,12 @@
 
       {% for question in latest_question_list %}
 
-      <div class="col-md row-xs">
+      <div class="col-md">
         <div class="card">
-          <div class="card-block">
-            <h5 class="card-title"> Question {{ question.id }}</h5>
+          <div class="card-body">
+            <h3 class="card-title"> Question {{ question.id }}</h5>
             <p class="card-text">{{ question.question_text}}</p>
-            <a class="card-link" href="{% url 'polls:detail' question.id %}">Find out here ! </a>
+            <a class="btn btn-primary" href="{% url 'polls:detail' question.id %}">Find out here ! </a>
           </div>
         </div>
       </div>
