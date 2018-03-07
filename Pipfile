@@ -17,6 +17,7 @@ gunicorn = "*"
 "flake8" = "*"
 jedi = "*"
 django-heroku = "*"
+"django-bootstrap3" = "*"
 
 
 [requires]
