@@ -1,2 +1,2 @@
-release: python mysite/manage.py migrate
+release: ./release-tasks.sh
 web: gunicorn --pythonpath mysite mysite.wsgi
