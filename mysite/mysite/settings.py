@@ -12,10 +12,10 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 # Try to import local_settings
-try:
-    from .local_settings import *
-except ImportError as e:
-    print("no local settings : {} ".format(e))
+# try:
+#     from .local_settings import *
+# except ImportError as e:
+#     print("no local settings : {} ".format(e))
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -106,11 +106,22 @@ USE_L10N = True
 
 USE_TZ = True
 
+"""Local settings containing sensitive information"""
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.0/howto/static-files/
+# debug
+DEBUG = os.environ.get('DEBUG')
+# postgresql settings
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 
-STATIC_URL = '/static/'
 
 
 # Activate Django-Heroku.
