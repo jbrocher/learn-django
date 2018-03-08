@@ -11,13 +11,11 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-import logging
 # Try to import local_settings
 try:
-    from local_settings import *
+    from .local_settings import *
 except ImportError as e:
-    logger = logging.getLogger(__name__)
-    logger.info("no local settings")
+    print("no local settings : {} ".format(e))
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
