@@ -1,0 +1,15 @@
+
+/*Module Sentiment analysis*/
+
+.sentiment-analysis__twitter{
+  background-color: azure;
+}
+.sentiment-analysis__chart{
+  width:100%;
+}
+
+
+.navbar__logo{
+  width: 30px;
+  height: auto;
+}
