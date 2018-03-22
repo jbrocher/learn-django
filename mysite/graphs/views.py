@@ -6,3 +6,6 @@ from django.urls import reverse
 
 def index(request):
     return render(request, 'graphs/index.html', {'question': 3})
+
+def googlePieChart(request):
+        return render(request, 'graphs/google-pie-chart.html', {'question': 3})
