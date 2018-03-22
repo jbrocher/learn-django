@@ -1,2 +1,68 @@
 {% extends "graphs/base.html" %}
 {% load static %}
+{% block content %}
+<div class="row  sentiment-analysis">
+  <div class="col">
+  <h2 class="text-center">Sentiment analysis</h2>
+  <div class="row sentiment-analysis__twitter">
+    <div class="col">
+      <div class="row mb-2 justify-content-md-center">
+        <div class="col-auto">
+          <div class="btn-group ">
+            <button type="button" data-time="day" class="btn  btn-primary sentiment-analysis__time-control">1 j</button>
+            <button type="button" data-time="week" class="btn ml-1  btn-primary sentiment-analysis__time-control">7 j</button>
+            <button type="button" data-time="month" class="btn ml-1 mr-1 btn-primary sentiment-analysis__time-control">1 m</button>
+            <button type="button" data-time="year" class="btn  btn-primary sentiment-analysis__time-control">1 y</button>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-md-center sentiment-analysis_charts">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title"> Sentiment analysis</h2>
+              <div class="sentiment-analysis__chart chart-day">
+
+              </div>
+              <div class="sentiment-analysis__chart chart-week">
+
+              </div>
+              <div class="sentiment-analysis__chart chart-month">
+
+              </div>
+              <div class="sentiment-analysis__chart chart-year">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title"> Number of tweets evolution</h2>
+              <div class="sentiment-analysis__chart chart2-day">
+
+              </div>
+              <div class="sentiment-analysis__chart chart2-week">
+
+              </div>
+              <div class="sentiment-analysis__chart chart2-month">
+
+              </div>
+              <div class="sentiment-analysis__chart chart2-year">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+{% endblock %} {% block scripts %}
+<script type="text/javascript" src="{% static 'graphs/js/script.js' %}">
+</script>
+{% endblock %}
